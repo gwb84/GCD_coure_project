@@ -1,2 +1,2 @@
-# GCD_coure_project
+# GCD_course_project
 Getting and Cleaning Data Course Project
