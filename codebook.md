@@ -16,53 +16,54 @@ These signals were used to estimate variables of the feature vector for each pat
 - The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/sec2). 
 - The gyroscope units are rad/sec.
 
-timeBodyAcc-XYZ
-timeGravityAcc-XYZ
-timeBodyAccJerk-XYZ
-timeBodyGyro-XYZ
-timeBodyGyroJerk-XYZ
-timeBodyAccMag
-timeGravityAccMag
-timeBodyAccJerkMag
-timeBodyGyroMag
-timeBodyGyroJerkMag
-freqBodyAcc-XYZ
-freqBodyAccJerk-XYZ
-freqBodyGyro-XYZ
-freqBodyAccMag
-freqBodyAccJerkMag
-freqBodyGyroMag
-freqBodyGyroJerkMag
+timeBodyAcc-XYZ  
+timeGravityAcc-XYZ  
+timeBodyAccJerk-XYZ  
+timeBodyGyro-XYZ  
+timeBodyGyroJerk-XYZ  
+timeBodyAccMag  
+timeGravityAccMag  
+timeBodyAccJerkMag  
+timeBodyGyroMag  
+timeBodyGyroJerkMag  
+freqBodyAcc-XYZ  
+freqBodyAccJerk-XYZ  
+freqBodyGyro-XYZ  
+freqBodyAccMag  
+freqBodyAccJerkMag  
+freqBodyGyroMag  
+freqBodyGyroJerkMag  
 
-The original data set from UCI contains means and standard deviations derived from these measurements. 
-For frequency data, these are weighted averages.
-These variables include 'mean' and 'std' in their names
+The original data set from UCI contains means and standard deviations derived from these measurements.   
+For frequency data, these are weighted averages.  
+These variables include 'mean' and 'std' in their names  
 
 Some additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
-gravityMean
-timeBodyAccMean
-timeBodyAccJerkMean
-timeBodyGyroMean
-timeBodyGyroJerkMean
 
-All variables representing means and standard deviations are extracted in  run_analysis.R 
-run_analysis.R then computes the mean of each of these variables for each of 6 activities
+gravityMean  
+timeBodyAccMean  
+timeBodyAccJerkMean  
+timeBodyGyroMean  
+timeBodyGyroJerkMean  
 
-mean(): Mean value
-std(): Standard deviation
-meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+All variables representing means and standard deviations are extracted in run_analysis.R  
+run_analysis.R then computes the mean of each of these variables for each of 6 activities  
+
+mean: Mean value  
+std: Standard deviation  
+meanFreq: Weighted average of the frequency components to obtain a mean frequency  
 
 
 ## Activities Considered in run_analysis.R
-The measurements were taken when participants were engaged in 1 of 6 activities
-These activities are
+The measurements were taken when participants were engaged in 1 of 6 activities  
+These activities are  
 
-1 WALKING
-2 WALKING_UPSTAIRS
-3 WALKING_DOWNSTAIRS
-4 SITTING
-5 STANDING
-6 LAYING
+1 WALKING  
+2 WALKING_UPSTAIRS  
+3 WALKING_DOWNSTAIRS  
+4 SITTING  
+5 STANDING  
+6 LAYING  
 
 
 
