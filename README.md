@@ -7,8 +7,8 @@ Getting and Cleaning Data Course Project
 This file loads data from a local directory and outputs a tidy data set.
 Briefly, the dataset is sensor data from a smart phone from people who were doing one of six activies, e.g. sitting, walking, running...  
 
-The data set is described at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones  
-The data set may be downloaded at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
+The original data set is described at http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones  
+The original data set may be downloaded at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
 
 The training X and test X data sets are combined, as are the training y and test y data sets  
 Variables names are cleaned to be more readable  
