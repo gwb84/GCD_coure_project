@@ -76,6 +76,8 @@ for (i in 1:length(activity_labels)){
 tidy_set = as.data.frame(tidy_set,row.names=activity_labels)
 colnames(tidy_set) = X_set_names
 
+write.csv(tidy_set, file = '/Users/gwb/Rworking/GCD_course_project/X_tidy.csv')
+
 
 
 
