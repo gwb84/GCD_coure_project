@@ -2,7 +2,7 @@
 Getting and Cleaning Data Course Project
 
 ## Analysis files
-run_analysis.R
+### run_analysis.R
 
 This file loads data from a local directory and outputs a tidy data set.
 Briefly, the dataset is sensor data from a smart phone from people who were doing one of six activies, e.g. sitting, walking, running...
@@ -18,7 +18,7 @@ The y data set is converted from level numbers to activity descriptions
 For each of the six activities, the expected values of the measurement means and standard deviations are computed
 These results are stored in a data frame with descriptive row and column names. The resulting tidy data is saved to a .csv file
 
-x_tidy.csv
+### x_tidy.csv
 
 This is the tidy data output file
 
