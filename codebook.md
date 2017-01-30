@@ -47,7 +47,7 @@ timeBodyGyroMean
 timeBodyGyroJerkMean  
 
 All variables representing means and standard deviations are extracted in run_analysis.R  
-run_analysis.R then computes the mean of each of these variables for each of 6 activities  
+run_analysis.R then computes the mean of each of these variables for each of 6 activities for each of the 30 study participants    
 
 mean: Mean value  
 std: Standard deviation  
