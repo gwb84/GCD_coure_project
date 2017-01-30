@@ -28,10 +28,14 @@ feature_labels = gsub('maxInds','max_freq_inds',feature_labels)
 # load training set with feature_labels as column names (OBJECTIVE 4)
 # X_training_set = read.table('/Users/gwb/Rworking/UCI_HAR_Dataset/train/X_train.txt',col.names=feature_labels)
 X_training_set = read.table('X_train.txt',col.names=feature_labels)
+subject_train = read.table('subject_train.txt',col.names='Subject')
 
 # repeat for test set
 # X_test_set = read.table('/Users/gwb/Rworking/UCI_HAR_Dataset/test/X_test.txt',col.names=feature_labels)
 X_test_set = read.table('X_test.txt',col.names=feature_labels)
+
+# which of the 30 people in the test, indexed by a number 1:30
+subject_test = read.table('subject_test.txt',col.names='Subject')
 
 # load the training set labels, will be integers in [1,5]
 # y_training_labels = read.table('/Users/gwb/Rworking/UCI_HAR_Dataset/train/y_train.txt',col.names=c('activity'))
@@ -46,6 +50,7 @@ X_set = rbind(X_training_set,X_test_set)
 dx = dim(X_set)
 y_set = rbind(y_training_labels,y_test_labels)
 dy = dim(y_set)
+subject_set = rbind(subject_train,subject_test)
 
 # check sizes of X_set and y_set
 if (dy[1] != dx[1]) { stop('length of x and y do not match')}
@@ -72,17 +77,30 @@ y_set$activity = factor(y_set$activity,ordered = F,labels = activity_labels)
 # OBJECTIVE 5 Tidy data set with the average of each variable for each activity and each subject
 X_set_names = names(X_set)
 nrow = length(activity_labels)
-tidy_set = matrix(nrow=nrow,ncol=length(X_set_names))
+nsubjects = 30
+tidy_set = matrix(nrow=nrow*nsubjects,ncol=length(X_set_names))
+new_row_names = character(length=nrow*nsubjects)
 
+count = 0
 for (i in 1:length(activity_labels)){
   # find the rows corresponding to the activity
   inds = y_set$activity == activity_labels[i]
-  # compute the mean of each measurement for the given activity
-  tidy_set[i,] = t(colMeans(X_set[inds,]))
+  for (j in 1:nsubjects) {
+    # find the rows corresponding to the subject
+    if (j > 1) {inds_sub_last = inds_sub}
+    inds_sub = subject_set$Subject == j
+    
+    ind_combined = as.logical(inds*inds_sub)
+    # compute the mean of each measurement for the given activity
+    count = count + 1
+    tidy_set[count,] = colMeans(X_set[ind_combined,])
+    print(tidy_set[count,1:3])
+    new_row_names[count] = paste0(activity_labels[i],' Subject' , j)
+  }
 }
 
 # put tidy_set into a data frame with descriptive row and column names
-tidy_set = as.data.frame(tidy_set,row.names=activity_labels)
+tidy_set = as.data.frame(tidy_set,row.names=new_row_names)
 colnames(tidy_set) = X_set_names
 
 #write.csv(tidy_set, file = '/Users/gwb/Rworking/GCD_course_project/X_tidy.csv')
