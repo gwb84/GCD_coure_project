@@ -16,10 +16,10 @@ A subset of the combined X data is taken that only includes the measurement mean
 
 The y data set is converted from level numbers to activity descriptions  
 
-For each of the six activities, the expected values of the measurement means and standard deviations are computed  
-These results are stored in a data frame with descriptive row and column names. The resulting tidy data is saved to a .csv file called x_tidy.csv
+For each of the six activities, the expected values of the measurement means and standard deviations are computed for each of the 30 study participants    
+These results are stored in a data frame with descriptive row and column names. The resulting tidy data is saved to a .txt file called X_tidy.txt
 
-### x_tidy.csv
+### X_tidy.txt
 
 This is the tidy data output file
 
