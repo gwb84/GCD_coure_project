@@ -1,5 +1,12 @@
 # Analysis of Human Activity Recognition Using Smartphones Data Set
 
+# As the project instructions state, 
+# "The code should have a file run_analysis.R in the main directory that can be run 
+# as long as the Samsung data is in your working directory."
+# Thus, the script is designed to run with features.txt, y_train.txt, y_test.txt,
+# X_train.txt, X_test.txt, activity_labels.txt  
+# in the R working directory
+
 # This script:
 # 1) Merges the training and the test sets to create one data set.
 # 2) Extracts only the measurements on the mean and standard deviation for each measurement.
@@ -13,6 +20,8 @@
 
 # load feature labels as strings
 # feature_labels = read.table('/Users/gwb/Rworking/UCI_HAR_Dataset/features.txt',stringsAsFactors = F)
+
+
 feature_labels = read.table('features.txt',stringsAsFactors = F)
 feature_labels = feature_labels[,2] # only need the second column
 
@@ -94,6 +103,7 @@ for (i in 1:length(activity_labels)){
     # compute the mean of each measurement for the given activity
     count = count + 1
     tidy_set[count,] = colMeans(X_set[ind_combined,])
+    if (sum(is.na(tidy_set[count,]))>0) {stop('NA values')}
     print(tidy_set[count,1:3])
     new_row_names[count] = paste0(activity_labels[i],' Subject' , j)
   }
